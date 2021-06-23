@@ -93,6 +93,8 @@ MonoBehaviour:
     probability: 0.1
   - prefab: {fileID: 5606882989552398874, guid: 2eedded6fab41bf4c9f704349d1e1df5, type: 3}
     probability: 0.3
+  - prefab: {fileID: 5606882989552398874, guid: 0a7aded2237459847b5eecb43b0603f9, type: 3}
+    probability: 0.2
   - prefab: {fileID: 1915246665331687806, guid: 63542ec0ad3738c4db9cce0375b6e929, type: 3}
     probability: 0.5
 --- !u!1 &3654920592486221731

@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,12 +16,19 @@ public class PlayerController : MonoBehaviour
     public GameEvent OnCoinPlaySound;
 
     [Header("Other Events Binding")]
+
+    public GameEvent OnPlayerInvincible;
+
+    public GameEvent OnPlayerOffInvincible;
+    public GameEvent OnUseItem;
+
     public LocationGameEvent OnMarioDeath;
 
     public IntegerGameEvent OnAddScore;
 
     [Header("Variable Binding")]
-    public FloatVar playerPositionX;
+
+   public FloatVar playerPositionX;
 
     public FloatVar playerPositionY;
 
@@ -30,11 +38,19 @@ public class PlayerController : MonoBehaviour
     [Header("Components")]
     public Animator anim;
 
+    public Light2D _light;
+
     private bool isAlive = true;
 
     private float horizontalInput;
 
+    private float additionalSpeed = 0; // from booster
+
+    private float additionalForce = 0; // from booster
+
     private bool isGrounded = false;
+
+    private bool effectInUse = false;
 
     private Rigidbody2D rb;
 
@@ -66,7 +82,7 @@ public class PlayerController : MonoBehaviour
                 .Translate(Vector2.right *
                 Time.deltaTime *
                 horizontalInput *
-                constants.moveSpeed);
+                (constants.moveSpeed + additionalSpeed));
 
             // Update player position var
             playerPositionX.Set(transform.position.x);
@@ -83,6 +99,15 @@ public class PlayerController : MonoBehaviour
             {
                 Jump();
             }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (!effectInUse)
+                {
+                    effectInUse = true;
+                    OnUseItem.Raise();
+                }
+            }
         }
     }
 
@@ -91,13 +116,16 @@ public class PlayerController : MonoBehaviour
         OnJumpPlaySound.Raise();
         anim.SetTrigger("jump");
         anim.SetBool("grounded", false);
-        rb.AddForce(Vector2.up * constants.jumpForce, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.up * (constants.jumpForce + additionalForce), ForceMode2D.Impulse);
         isGrounded = false;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.collider.CompareTag("ground") || other.collider.CompareTag("brick"))
+        if (
+            other.collider.CompareTag("ground") ||
+            other.collider.CompareTag("brick")
+        )
         {
             isGrounded = true;
             anim.SetBool("grounded", true);
@@ -109,10 +137,6 @@ public class PlayerController : MonoBehaviour
         if (other.collider.CompareTag("enemy_top") && isAlive)
         {
             OnStompPlaySound.Raise();
-            anim.SetTrigger("jump");
-            rb
-                .AddForce(Vector2.up * constants.jumpForce * 1.2f,
-                ForceMode2D.Impulse);
             isGrounded = true;
         }
         if (other.collider.CompareTag("bumper"))
@@ -142,5 +166,58 @@ public class PlayerController : MonoBehaviour
             OnCoinPlaySound.Raise();
             OnAddScore.Raise(constants.coinCollected);
         }
+    }
+
+    public void OnGoldenMushroomUsed()
+    {
+        OnPlayerInvincible.Raise();
+        transform.localScale *= constants.goldenMushroomSizeUpMultiplier;
+        _light.enabled = true;
+        _light.intensity = constants.goldenMushroomEffectIntensity;
+        _light.color = constants.goldenMushroomEffectColor;
+        StartCoroutine(TurnOffInvincible());
+    }
+
+    IEnumerator TurnOffInvincible()
+    {
+        yield return new WaitForSeconds(constants.goldenMushroomEffectDuration);
+        OnPlayerOffInvincible.Raise();
+        transform.localScale /= constants.goldenMushroomSizeUpMultiplier;
+        _light.enabled = false;
+        effectInUse = false;
+    }
+
+    public void OnSpeedMushroomUsed()
+    {
+        additionalSpeed = constants.speedMushroomGainSpeed;
+        _light.enabled = true;
+        _light.intensity = constants.speedMushroomEffectIntensity;
+        _light.color = constants.speedMushroomEffectColor;
+        StartCoroutine(TurnOffSpeedGain());
+    }
+
+    IEnumerator TurnOffSpeedGain()
+    {
+        yield return new WaitForSeconds(constants.speedMushroomEffectDuration);
+        additionalSpeed = 0;
+        _light.enabled = false;
+        effectInUse = false;
+    }
+
+    public void OnJumperMushroomUsed()
+    {
+        additionalForce = constants.jumperMushroomJumpForceGain;
+        _light.enabled = true;
+        _light.intensity = constants.jumperMushroomEffectIntensity;
+        _light.color = constants.jumperMushroomEffectColor;
+        StartCoroutine(TurnOffJumpGain());
+    }
+
+    IEnumerator TurnOffJumpGain()
+    {
+        yield return new WaitForSeconds(constants.jumperMushroomEffectDuration);
+        additionalForce = 0;
+        _light.enabled = false;
+        effectInUse = false;
     }
 }

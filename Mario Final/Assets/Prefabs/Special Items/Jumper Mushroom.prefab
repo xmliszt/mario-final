@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7025608315099820168}
   - component: {fileID: 6468335319176307929}
   m_Layer: 0
-  m_Name: Golden Mushroom
+  m_Name: Jumper Mushroom
   m_TagString: golden_mushroom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 37720985
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300088, guid: cbe738a6b31804fbfa01d65f850d595b, type: 3}
+  m_Sprite: {fileID: 21300058, guid: cbe738a6b31804fbfa01d65f850d595b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constants: {fileID: 11400000, guid: d9313749746248e43a8a2085c824f78c, type: 2}
-  _type: 2
+  _type: 4
 --- !u!114 &7025608315099820168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 0.6473432, b: 0.1372549, a: 1}
+  m_Color: {r: 0.39678115, g: 1, b: 0.37169808, a: 1}
   m_Intensity: 1.4
   m_LightVolumeOpacity: 0.117
   m_ApplyToSortingLayers: 0000000099933f02
@@ -201,10 +201,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73fe7fbdad0f8a642b23b70bf628f6f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 2
+  _type: 4
   inventoryFull: {fileID: 11400000, guid: 6b299fcca7e4f2940845760ca337a727, type: 2}
   constants: {fileID: 11400000, guid: d9313749746248e43a8a2085c824f78c, type: 2}
   OnAddScore: {fileID: 11400000, guid: 9ec882f73560e2b4bafc0b489f196319, type: 2}
-  booster: {fileID: 11400000, guid: c19fb954eab000a4596a8d5ff6f5bce2, type: 2}
+  booster: {fileID: 11400000, guid: 174aaf054e1689b45b359adeccc52970, type: 2}
   OnMushroomCollected: {fileID: 11400000, guid: a6067f7415c9462438ff226095e60b53, type: 2}
   OnStompSoundPlay: {fileID: 11400000, guid: 3aa63e2b90052e4448fe9d9e8c1da758, type: 2}

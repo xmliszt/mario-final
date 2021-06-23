@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b40dd6851605954da58e61dcf5766fb, type: 3}
   m_Name: GameConstants
   m_EditorClassIdentifier: 
+  coinCollected: 1
+  gombaKilled: 3
+  mushroomCollected: 2
+  capacity: 4
   upperBound: 30
   lowerBound: -5.5
   leftBound: -3.5
@@ -20,7 +24,21 @@ MonoBehaviour:
   jumpForce: 250
   switchDirectionDelayMin: 2
   switchDirectionDelayMax: 5
-  boostMoveSpeed: 5
+  goldenMushroomMoveSpeed: 5
+  goldenMushroomSizeUpMultiplier: 1.2
+  goldenMushroomEffectDuration: 5
+  goldenMushroomEffectColor: {r: 1, g: 0.9949348, b: 0, a: 0}
+  goldenMushroomEffectIntensity: 1.6
+  speedMushroomMoveSpeed: 2
+  speedMushroomGainSpeed: 10
+  speedMushroomEffectDuration: 5
+  speedMushroomEffectColor: {r: 0, g: 0.60606766, b: 1, a: 0}
+  speedMushroomEffectIntensity: 1.5
+  jumperMushroomMoveSpeed: 3
+  jumperMushroomJumpForceGain: 100
+  jumperMushroomEffectDuration: 5
+  jumperMushroomEffectColor: {r: 0.16584206, g: 1, b: 0, a: 0}
+  jumperMushroomEffectIntensity: 1.5
   emitForce: 20
   emitOffsetY: 1
   fireballMoveSpeed: 10

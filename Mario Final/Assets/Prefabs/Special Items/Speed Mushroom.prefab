@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 5606882989552398873}
   - component: {fileID: 5606882989552398877}
   - component: {fileID: 5606882989552398878}
-  - component: {fileID: 1676448224675651093}
   - component: {fileID: 7973723510269948799}
   - component: {fileID: 3385183246359911301}
+  - component: {fileID: 7683390040333759173}
   m_Layer: 0
   m_Name: Speed Mushroom
-  m_TagString: mushroom
+  m_TagString: speed_mushroom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,18 +134,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1676448224675651093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5606882989552398874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c938e88affe298e459cf83f5c694adce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7973723510269948799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,3 +189,22 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &7683390040333759173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5606882989552398874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73fe7fbdad0f8a642b23b70bf628f6f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 3
+  inventoryFull: {fileID: 11400000, guid: 6b299fcca7e4f2940845760ca337a727, type: 2}
+  constants: {fileID: 11400000, guid: d9313749746248e43a8a2085c824f78c, type: 2}
+  OnAddScore: {fileID: 11400000, guid: 9ec882f73560e2b4bafc0b489f196319, type: 2}
+  booster: {fileID: 11400000, guid: 5750288cdb09bf048924a36f59708079, type: 2}
+  OnMushroomCollected: {fileID: 11400000, guid: a6067f7415c9462438ff226095e60b53, type: 2}
+  OnStompSoundPlay: {fileID: 11400000, guid: 3aa63e2b90052e4448fe9d9e8c1da758, type: 2}

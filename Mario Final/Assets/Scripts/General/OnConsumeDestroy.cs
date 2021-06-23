@@ -6,16 +6,14 @@ public class OnConsumeDestroy : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            Destroy (gameObject);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            Destroy (gameObject);
         }
     }
-
 }

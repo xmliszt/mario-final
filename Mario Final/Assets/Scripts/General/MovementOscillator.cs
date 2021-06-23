@@ -3,16 +3,10 @@ using UnityEngine;
 
 public class MovementOscillator : MonoBehaviour
 {
-    public enum ObjectType
-    {
-        gomba = 1,
-        boost = 2
-    }
 
     public GameConstants constants;
 
-    public ObjectType _type;
-
+    public ObjectTypes.ObjectType _type;
     private float moveSpeed;
 
     private bool goRight; // true: right | false: left
@@ -30,21 +24,25 @@ public class MovementOscillator : MonoBehaviour
     {
         switch (_type)
         {
-            case ObjectType.gomba:
+            case ObjectTypes.ObjectType.gomba:
                 moveSpeed = constants.enemyMoveSpeed;
                 break;
-            case ObjectType.boost:
-                moveSpeed = constants.boostMoveSpeed;
+            case ObjectTypes.ObjectType.goldenMushroom:
+                moveSpeed = constants.goldenMushroomMoveSpeed;
+                break;
+            case ObjectTypes.ObjectType.speedMushroom:
+                moveSpeed = constants.speedMushroomMoveSpeed;
+                break;
+            case ObjectTypes.ObjectType.jumperMushroom:
+                moveSpeed = constants.jumperMushroomMoveSpeed;
                 break;
         }
         if (!goRight)
         {
-            // move left
             transform.Translate(Vector2.left * Time.deltaTime * moveSpeed);
         }
         else
         {
-            // move right
             transform.Translate(Vector2.right * Time.deltaTime * moveSpeed);
         }
     }

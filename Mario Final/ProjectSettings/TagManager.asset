@@ -13,6 +13,8 @@ TagManager:
   - brick
   - coin
   - dead
+  - golden_mushroom
+  - speed_mushroom
   layers:
   - Default
   - TransparentFX

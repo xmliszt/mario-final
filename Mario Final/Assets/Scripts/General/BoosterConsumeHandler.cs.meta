@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 73fe7fbdad0f8a642b23b70bf628f6f4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - inventoryFull: {instanceID: 0}
+  - constants: {fileID: 11400000, guid: d9313749746248e43a8a2085c824f78c, type: 2}
+  - OnAddScore: {fileID: 11400000, guid: 9ec882f73560e2b4bafc0b489f196319, type: 2}
+  - booster: {instanceID: 0}
+  - OnMushroomCollected: {instanceID: 0}
+  - OnStompSoundPlay: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

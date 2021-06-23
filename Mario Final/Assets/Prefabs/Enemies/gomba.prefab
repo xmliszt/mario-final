@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8703792986047008707}
   - component: {fileID: 7256736188250601922}
   - component: {fileID: 479245357}
+  - component: {fileID: 4099781836336614417}
+  - component: {fileID: 7740529622377547411}
   m_Layer: 0
   m_Name: Gomba
   m_TagString: enemy
@@ -96,6 +98,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   constants: {fileID: 11400000, guid: d9313749746248e43a8a2085c824f78c, type: 2}
   _type: 1
+--- !u!114 &4099781836336614417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915246665331687806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3db5c00016f2c34418d3cd565857e0cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listeners:
+  - Event: {fileID: 11400000, guid: f472ef996c5bf5c48b9f8fe0ebb03d7d, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7740529622377547411}
+          m_TargetAssemblyTypeName: GombaHandler, Assembly-CSharp
+          m_MethodName: OnPlayerTurnInvincible
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Event: {fileID: 11400000, guid: 70f4a35b69227cb4a8b8204e7fe2eec4, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7740529622377547411}
+          m_TargetAssemblyTypeName: GombaHandler, Assembly-CSharp
+          m_MethodName: OnPlayerTurnOffInvincible
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &7740529622377547411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915246665331687806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 540277bd949df4d44808315f52c88e49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1915246665728962798
 GameObject:
   m_ObjectHideFlags: 0
