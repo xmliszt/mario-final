@@ -1,11 +1,19 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : Singleton<GameManager>
-{
-    public override void Awake()
+public class GameManager : MonoBehaviour
+{    
+    public GameObject deadMario;
+    private GameObject instantiatedDeadMario;
+    public void PlayMarioDeathResponse(Vector3 location) 
     {
-        base.Awake();
+        instantiatedDeadMario = Instantiate(deadMario, location, deadMario.transform.rotation);
+        StartCoroutine(RemoveDeadMario());
+    }
+
+    IEnumerator RemoveDeadMario() 
+    {
+        yield return new WaitForSeconds(2);
+        Destroy(instantiatedDeadMario);
     }
 }

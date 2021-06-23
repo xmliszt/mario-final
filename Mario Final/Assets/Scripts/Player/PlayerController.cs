@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public LocationGameEvent OnMarioDeath;
     public FloatVar playerPositionX;
 
     public FloatVar playerPositionY;
@@ -86,9 +87,9 @@ public class PlayerController : MonoBehaviour
         }
         if ((collision.gameObject.tag == "enemy") && isAlive)
         {
-            // dead
             isAlive = false;
-            GetComponent<SpriteRenderer>().sortingLayerName = "Foreground";
+            OnMarioDeath.Raise(transform.position);
+            Destroy(gameObject);
         }
         if (collision.gameObject.tag == "enemy_top" && isAlive)
         {

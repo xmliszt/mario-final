@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2345653106548326453}
   - component: {fileID: 7504875216367547070}
-  - component: {fileID: 5031992177193787270}
   - component: {fileID: 6204909032298854670}
   m_Layer: 0
   m_Name: LowerCollider
@@ -59,24 +58,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.87811506, y: 0.4533834}
   m_EdgeRadius: 0
---- !u!114 &5031992177193787270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757945840720544524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c24fc64f997d455408b33814fa79d951, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  constants: {fileID: 11400000, guid: d9313749746248e43a8a2085c824f78c, type: 2}
-  anim: {fileID: 4486518213926568395}
-  spawnableObjects:
-  - {fileID: 114379499297664600, guid: 2d1c0ab301b452249ba8bb5279056cfb, type: 3}
-  - {fileID: 5606882989552398874, guid: e85dec773bd1dfd489933119fa139bde, type: 3}
-  - {fileID: 5606882989552398874, guid: 2eedded6fab41bf4c9f704349d1e1df5, type: 3}
 --- !u!114 &6204909032298854670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,7 +224,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8016434489751032527}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.71, y: 0.96, z: 9.480873}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3245596759252600674}

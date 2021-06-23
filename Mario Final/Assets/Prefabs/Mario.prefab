@@ -30,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 394891822603696724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: -2, z: 0}
-  m_LocalScale: {x: 0.7835, y: 0.7835, z: 0.7835}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f7160e2a5770e4daeeeacd6382729b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnMarioDeath: {fileID: 11400000, guid: 427b0efb83cab3a44a62cef8d7dd385d, type: 2}
   playerPositionX: {fileID: 11400000, guid: a6e0549ed353260419ef1aa431d93eb6, type: 2}
   playerPositionY: {fileID: 11400000, guid: 3423cc53961d3194e9167633f36956c3, type: 2}
   constants: {fileID: 11400000, guid: d9313749746248e43a8a2085c824f78c, type: 2}

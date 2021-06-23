@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +5,6 @@ using UnityEngine;
 public class GameEvent : ScriptableObject
 {
     private readonly List<EventListener> listeners = new List<EventListener>();
-
     public void Raise()
     {
         foreach (EventListener listener in listeners)
