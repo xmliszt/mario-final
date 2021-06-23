@@ -16,10 +16,10 @@ public class PlayerController : MonoBehaviour
     public GameEvent OnCoinPlaySound;
 
     [Header("Other Events Binding")]
-
     public GameEvent OnPlayerInvincible;
 
     public GameEvent OnPlayerOffInvincible;
+
     public GameEvent OnUseItem;
 
     public LocationGameEvent OnMarioDeath;
@@ -27,8 +27,7 @@ public class PlayerController : MonoBehaviour
     public IntegerGameEvent OnAddScore;
 
     [Header("Variable Binding")]
-
-   public FloatVar playerPositionX;
+    public FloatVar playerPositionX;
 
     public FloatVar playerPositionY;
 
@@ -50,6 +49,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isGrounded = false;
 
+    private bool invincible = false;
     private bool effectInUse = false;
 
     private Rigidbody2D rb;
@@ -116,7 +116,9 @@ public class PlayerController : MonoBehaviour
         OnJumpPlaySound.Raise();
         anim.SetTrigger("jump");
         anim.SetBool("grounded", false);
-        rb.AddForce(Vector2.up * (constants.jumpForce + additionalForce), ForceMode2D.Impulse);
+        rb
+            .AddForce(Vector2.up * (constants.jumpForce + additionalForce),
+            ForceMode2D.Impulse);
         isGrounded = false;
     }
 
@@ -152,11 +154,16 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
         if (!enemy.CompareTag("dead"))
         {
-            isAlive = false;
-            OnDiePlaySound.Raise();
-            OnMarioDeath.Raise(transform.position);
-            Destroy (gameObject);
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        isAlive = false;
+        OnDiePlaySound.Raise();
+        OnMarioDeath.Raise(transform.position);
+        Destroy (gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -166,10 +173,15 @@ public class PlayerController : MonoBehaviour
             OnCoinPlaySound.Raise();
             OnAddScore.Raise(constants.coinCollected);
         }
+        if (other.CompareTag("enemy") && !invincible)
+        {
+            Die();
+        }
     }
 
     public void OnGoldenMushroomUsed()
     {
+        invincible = true;
         OnPlayerInvincible.Raise();
         transform.localScale *= constants.goldenMushroomSizeUpMultiplier;
         _light.enabled = true;
@@ -181,6 +193,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator TurnOffInvincible()
     {
         yield return new WaitForSeconds(constants.goldenMushroomEffectDuration);
+        invincible = false;
         OnPlayerOffInvincible.Raise();
         transform.localScale /= constants.goldenMushroomSizeUpMultiplier;
         _light.enabled = false;
