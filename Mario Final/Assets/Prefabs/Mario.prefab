@@ -206,7 +206,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f7160e2a5770e4daeeeacd6382729b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnBumpPlaySound: {fileID: 11400000, guid: 5022d23a544362b4496182dd2d44ff24, type: 2}
+  OnJumpPlaySound: {fileID: 11400000, guid: 6d46605f6704fb048937e89e186cddb3, type: 2}
+  OnStompPlaySound: {fileID: 11400000, guid: 3aa63e2b90052e4448fe9d9e8c1da758, type: 2}
+  OnDiePlaySound: {fileID: 11400000, guid: 2664ad6101c878e418e6c9f82d137afc, type: 2}
+  OnCoinPlaySound: {fileID: 11400000, guid: ec12e0d6e78009744a8dca7ef483ea2f, type: 2}
   OnMarioDeath: {fileID: 11400000, guid: 427b0efb83cab3a44a62cef8d7dd385d, type: 2}
+  OnAddScore: {fileID: 11400000, guid: 9ec882f73560e2b4bafc0b489f196319, type: 2}
   playerPositionX: {fileID: 11400000, guid: a6e0549ed353260419ef1aa431d93eb6, type: 2}
   playerPositionY: {fileID: 11400000, guid: 3423cc53961d3194e9167633f36956c3, type: 2}
   constants: {fileID: 11400000, guid: d9313749746248e43a8a2085c824f78c, type: 2}

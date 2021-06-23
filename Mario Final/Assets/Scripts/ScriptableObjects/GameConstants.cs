@@ -8,6 +8,12 @@ using UnityEngine;
 ]
 public class GameConstants : ScriptableObject
 {
+    [Header("Score")]
+
+    public int coinCollected = 1;
+
+    public int gombaKilled = 3;
+
     [Header("Camera")]
     public float upperBound = 30.0f;
 

@@ -242,6 +242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5891dc4d9adcdcf44bdc73ede52a55e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnAddScore: {fileID: 11400000, guid: 9ec882f73560e2b4bafc0b489f196319, type: 2}
+  constants: {fileID: 11400000, guid: d9313749746248e43a8a2085c824f78c, type: 2}
   gomba: {fileID: 1915246665331687806}
   animator: {fileID: 1915246665728962796}
 --- !u!68 &1882586231201875718

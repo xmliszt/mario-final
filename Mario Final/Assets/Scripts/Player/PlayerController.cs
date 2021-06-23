@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     [Header("Other Events Binding")]
     public LocationGameEvent OnMarioDeath;
 
+    public IntegerGameEvent OnAddScore;
+
     [Header("Variable Binding")]
     public FloatVar playerPositionX;
 
@@ -138,6 +140,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("coin"))
         {
             OnCoinPlaySound.Raise();
+            OnAddScore.Raise(constants.coinCollected);
         }
     }
 }
