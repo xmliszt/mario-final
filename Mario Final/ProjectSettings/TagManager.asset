@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ground
+  - enemy
+  - enemy_top
+  - firewall
+  - mushroom
+  - bumper
+  - brick
+  - coin
   layers:
   - Default
   - TransparentFX
@@ -40,4 +48,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3928300721
+    locked: 0
+  - name: Obstacle
+    uniqueID: 1260203535
+    locked: 0
+  - name: Enemy
+    uniqueID: 37720985
+    locked: 0
+  - name: Player
+    uniqueID: 3889028853
+    locked: 0
+  - name: UI
+    uniqueID: 607608807
     locked: 0
