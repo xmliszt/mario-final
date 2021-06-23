@@ -6,12 +6,10 @@ public class SquashController : MonoBehaviour
     public GameObject gomba;
     public Animator animator;
     
-    private bool dead = false;
     private void OnCollisionEnter2D(Collision2D other) {
-        if (other.collider.CompareTag("Player") && !dead) {
-            animator.SetTrigger("Dead_trig");
+        if (other.collider.CompareTag("Player")) {
             gomba.tag = "dead";
-            dead = true;
+            animator.SetTrigger("Dead_trig");
             StartCoroutine(Die());
         }
     }

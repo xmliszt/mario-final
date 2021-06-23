@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2345653106548326453}
   - component: {fileID: 7504875216367547070}
   - component: {fileID: 6204909032298854670}
+  - component: {fileID: 4312762668704248053}
   m_Layer: 0
   m_Name: LowerCollider
   m_TagString: bumper
@@ -71,6 +72,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4486518213926568395}
+--- !u!114 &4312762668704248053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757945840720544524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d947f5597c9c543b614423f7a287a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  luckyBoxAnimator: {fileID: 4486518213926568395}
+  constants: {fileID: 11400000, guid: d9313749746248e43a8a2085c824f78c, type: 2}
+  items:
+  - prefab: {fileID: 114379499297664600, guid: 2d1c0ab301b452249ba8bb5279056cfb, type: 3}
+    probability: 0.8
+  - prefab: {fileID: 5606882989552398874, guid: e85dec773bd1dfd489933119fa139bde, type: 3}
+    probability: 0.1
+  - prefab: {fileID: 5606882989552398874, guid: 2eedded6fab41bf4c9f704349d1e1df5, type: 3}
+    probability: 0.3
+  - prefab: {fileID: 1915246665331687806, guid: 63542ec0ad3738c4db9cce0375b6e929, type: 3}
+    probability: 0.5
 --- !u!1 &3654920592486221731
 GameObject:
   m_ObjectHideFlags: 0

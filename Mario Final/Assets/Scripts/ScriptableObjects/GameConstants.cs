@@ -33,6 +33,8 @@ public class GameConstants : ScriptableObject
     [Header("Lucky Box")]
     public float emitForce = 10f;
 
+    public float emitOffsetY = 0.6f;
+
     [Header("Fireball")]
 
     public float fireballMoveSpeed = 10;

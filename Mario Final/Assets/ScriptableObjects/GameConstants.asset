@@ -21,7 +21,8 @@ MonoBehaviour:
   switchDirectionDelayMin: 2
   switchDirectionDelayMax: 5
   boostMoveSpeed: 5
-  emitForce: 10
+  emitForce: 20
+  emitOffsetY: 1
   fireballMoveSpeed: 10
   destroyBoundY: 20
   enemyMoveSpeed: 2

@@ -1,14 +1,31 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Sound Events Binding")]
+    public GameEvent OnBumpPlaySound;
+
+    public GameEvent OnJumpPlaySound;
+
+    public GameEvent OnStompPlaySound;
+
+    public GameEvent OnDiePlaySound;
+
+    public GameEvent OnCoinPlaySound;
+
+    [Header("Other Events Binding")]
     public LocationGameEvent OnMarioDeath;
+
+    [Header("Variable Binding")]
     public FloatVar playerPositionX;
 
     public FloatVar playerPositionY;
 
+    [Header("Game Constants")]
     public GameConstants constants;
 
+    [Header("Components")]
     public Animator anim;
 
     private bool isAlive = true;
@@ -69,35 +86,58 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
+        OnJumpPlaySound.Raise();
         anim.SetTrigger("jump");
         anim.SetBool("grounded", false);
         rb.AddForce(Vector2.up * constants.jumpForce, ForceMode2D.Impulse);
         isGrounded = false;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (
-            collision.gameObject.tag == "ground" ||
-            collision.gameObject.tag == "brick"
-        )
+        if (other.collider.CompareTag("ground") || other.collider.CompareTag("brick"))
         {
             isGrounded = true;
             anim.SetBool("grounded", true);
         }
-        if ((collision.gameObject.tag == "enemy") && isAlive)
+        if ((other.collider.CompareTag("enemy")) && isAlive)
         {
-            isAlive = false;
-            OnMarioDeath.Raise(transform.position);
-            Destroy(gameObject);
+            StartCoroutine(CheckDeath(other.gameObject));
         }
-        if (collision.gameObject.tag == "enemy_top" && isAlive)
+        if (other.collider.CompareTag("enemy_top") && isAlive)
         {
+            OnStompPlaySound.Raise();
             anim.SetTrigger("jump");
             rb
                 .AddForce(Vector2.up * constants.jumpForce * 1.2f,
                 ForceMode2D.Impulse);
             isGrounded = true;
+        }
+        if (other.collider.CompareTag("bumper"))
+        {
+            OnBumpPlaySound.Raise();
+        }
+    }
+
+    // Wait for a very short while for enemy to update
+    // Prevent accident death upon stomping on Gomba
+    IEnumerator CheckDeath(GameObject enemy)
+    {
+        yield return new WaitForSeconds(0.01f);
+        if (!enemy.CompareTag("dead"))
+        {
+            isAlive = false;
+            OnDiePlaySound.Raise();
+            OnMarioDeath.Raise(transform.position);
+            Destroy (gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("coin"))
+        {
+            OnCoinPlaySound.Raise();
         }
     }
 }
