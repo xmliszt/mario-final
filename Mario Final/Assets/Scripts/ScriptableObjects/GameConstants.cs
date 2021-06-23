@@ -22,9 +22,23 @@ public class GameConstants : ScriptableObject
 
     public float jumpForce = 250;
 
+    [Header("Movement Configuration")]
+    
+    public float switchDirectionDelayMin = 2;
+    public float switchDirectionDelayMax = 5;
+
     [Header("Booster Item")]
     public float boostMoveSpeed = 2;
 
     [Header("Lucky Box")]
     public float emitForce = 10f;
+
+    [Header("Fireball")]
+
+    public float fireballMoveSpeed = 10;
+    public float destroyBoundY = 20;
+
+    [Header("Enemy")]
+
+    public float enemyMoveSpeed = 2;
 }

@@ -12,6 +12,7 @@ TagManager:
   - bumper
   - brick
   - coin
+  - dead
   layers:
   - Default
   - TransparentFX
@@ -63,4 +64,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 607608807
+    locked: 0
+  - name: Foreground
+    uniqueID: 3187450989
     locked: 0

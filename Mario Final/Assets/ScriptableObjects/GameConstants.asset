@@ -14,5 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upperBound: 30
   lowerBound: -5.5
-  leftBound: -2.5
+  leftBound: -3.5
   smoothRate: 0.2
+  moveSpeed: 12
+  jumpForce: 250
+  switchDirectionDelayMin: 2
+  switchDirectionDelayMax: 5
+  boostMoveSpeed: 5
+  emitForce: 10
+  fireballMoveSpeed: 10
+  destroyBoundY: 20
+  enemyMoveSpeed: 2

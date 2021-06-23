@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 8903365122580928972}
   - component: {fileID: 8903365122580928971}
   - component: {fileID: 8903365122580928970}
-  - component: {fileID: 8903365122580928969}
   - component: {fileID: 688368721295145661}
+  - component: {fileID: 8903365122580928969}
+  - component: {fileID: -9076121663448022180}
   m_Layer: 0
   m_Name: Fireball
   m_TagString: enemy
@@ -72,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1130373499
-  m_SortingLayer: 2
+  m_SortingLayerID: 37720985
+  m_SortingLayer: 3
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300542, guid: cbe738a6b31804fbfa01d65f850d595b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -131,18 +132,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8903365122580928969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8903365122580928968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df73aad741dd6f7429cf0830e2a60b02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &688368721295145661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,7 +150,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0.39999998, b: 0.39999998, a: 1}
   m_Intensity: 2
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 7b216043
+  m_ApplyToSortingLayers: 99933f02
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -184,3 +173,28 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &8903365122580928969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8903365122580928968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df73aad741dd6f7429cf0830e2a60b02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  constants: {fileID: 11400000, guid: d9313749746248e43a8a2085c824f78c, type: 2}
+--- !u!114 &-9076121663448022180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8903365122580928968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c938e88affe298e459cf83f5c694adce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

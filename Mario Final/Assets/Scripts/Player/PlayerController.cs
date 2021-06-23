@@ -1,69 +1,66 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public FloatVar playerPositionX;
+
+    public FloatVar playerPositionY;
+
     public GameConstants constants;
-    private bool isAlive;
-    private bool isInvincible;
-    private Animator anim;
+
+    public Animator anim;
+
+    private bool isAlive = true;
+
     private float horizontalInput;
-    private bool isGrounded;
-    
+
+    private bool isGrounded = false;
+
     private Rigidbody2D rb;
-    private SoundManager sm;
-    private ScoreManager scoreManager;
-    // Start is called before the first frame update
+
+    private SpriteRenderer spriteRenderer;
+
     void Start()
     {
-        isAlive = true;
-        isInvincible = false;
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponentInChildren<Animator>();
-        sm = FindObjectOfType<SoundManager>();
-        scoreManager = FindObjectOfType<ScoreManager>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        playerPositionX.Set(transform.position.x);
+        playerPositionY.Set(transform.position.y);
     }
 
-    // Update is called once per frame
     void Update()
     {
-       
         if (isAlive)
         {
             horizontalInput = Input.GetAxis("Horizontal");
-            anim.SetBool("Grounded_b", isGrounded);
-            anim.SetFloat("Speed_f", Mathf.Abs(horizontalInput));
+            anim.SetFloat("speed", Mathf.Abs(horizontalInput));
             if (horizontalInput > 0)
             {
-                // move right
-                transform.localScale = new Vector2(1, 1);
-                transform.Translate(Vector2.right * Time.deltaTime * horizontalInput * constants.moveSpeed);
+                spriteRenderer.flipX = false;
             }
             else if (horizontalInput < 0)
             {
-                // move left
-                transform.localScale = new Vector2(-1, 1);
-                transform.Translate(Vector2.right * Time.deltaTime * horizontalInput * constants.moveSpeed);
+                spriteRenderer.flipX = true;
             }
-            else
-            {
-                // idle
-            }
+            transform
+                .Translate(Vector2.right *
+                Time.deltaTime *
+                horizontalInput *
+                constants.moveSpeed);
 
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
-            {
-                anim.SetBool("Running_b", true);
-            }
+            // Update player position var
+            playerPositionX.Set(transform.position.x);
+            playerPositionY.Set(transform.position.y);
 
-            if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
+            if (
+                (
+                Input.GetKeyDown(KeyCode.Space) ||
+                Input.GetKeyDown(KeyCode.UpArrow) ||
+                Input.GetKeyDown(KeyCode.W)
+                ) &&
+                isGrounded
+            )
             {
-                anim.SetBool("Running_b", false);
-            }
-
-            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && isGrounded)
-            {
-                // mario jump
                 Jump();
             }
         }
@@ -71,69 +68,35 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        sm.PlayJump();
-        anim.SetTrigger("Jump_trig");
+        anim.SetTrigger("jump");
+        anim.SetBool("grounded", false);
         rb.AddForce(Vector2.up * constants.jumpForce, ForceMode2D.Impulse);
         isGrounded = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "ground" || collision.gameObject.tag == "brick")
+        if (
+            collision.gameObject.tag == "ground" ||
+            collision.gameObject.tag == "brick"
+        )
         {
             isGrounded = true;
+            anim.SetBool("grounded", true);
         }
-        if (collision.gameObject.tag == "bumper")
-        {
-            sm.PlayBump();
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if ((collision.gameObject.tag == "enemy" || collision.gameObject.tag == "firewall") && isAlive && !isInvincible)
+        if ((collision.gameObject.tag == "enemy") && isAlive)
         {
             // dead
             isAlive = false;
-            GetComponentInChildren<SpriteRenderer>().sortingLayerName = "Foreground";
-            anim.SetTrigger("Dead_trig");
-            anim.SetBool("Dead_b", true);
-            sm.PauseMain();
-            sm.StopSource();
-            sm.PlayDie();
-            // gameover
-        }
-        if (collision.gameObject.tag == "coin")
-        {
-            scoreManager.AddScore(1);
-            sm.PlayCoin();
-        }
-        if (collision.gameObject.tag == "mushroom")
-        {
-            // collect item
-            CancelInvoke();
-            anim.SetTrigger("Invincible_trig");
-            anim.SetBool("Invincible_b", true);
-            isInvincible = true;
-            Invoke("OffInvincible", 5);
-        }
-        if (isInvincible && collision.gameObject.tag == "enemy")
-        {
-            sm.PlayStomp();
+            GetComponent<SpriteRenderer>().sortingLayerName = "Foreground";
         }
         if (collision.gameObject.tag == "enemy_top" && isAlive)
         {
-            sm.PlayStomp();
-            anim.SetTrigger("Jump_trig");
-            rb.AddForce(Vector2.up * constants.jumpForce * 1.2f, ForceMode2D.Impulse);
+            anim.SetTrigger("jump");
+            rb
+                .AddForce(Vector2.up * constants.jumpForce * 1.2f,
+                ForceMode2D.Impulse);
             isGrounded = true;
         }
-    }
-
-    private void OffInvincible()
-    {
-        isInvincible = false;
-        anim.SetBool("Invincible_b", false);
-        anim.SetTrigger("OffInvincible_trig");
     }
 }
