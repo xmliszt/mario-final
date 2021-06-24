@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
+    public GameEvent OnStartSceneTransition;
     public GameEvent OnGameWin;
     private bool isPlayerEnter = false;
 
@@ -40,6 +41,8 @@ public class SceneChanger : MonoBehaviour
         // Not the last scene
         if (SceneManager.GetActiveScene().name != "Level3")
         {
+            OnStartSceneTransition.Raise();
+            yield return new WaitForSeconds(1); // Transition animation duration
             AsyncOperation newSceneOperation =
                 SceneManager
                     .LoadSceneAsync(SceneManager.GetActiveScene().buildIndex +

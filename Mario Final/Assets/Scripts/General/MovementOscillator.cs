@@ -9,14 +9,13 @@ public class MovementOscillator : MonoBehaviour
     public ObjectTypes.ObjectType _type;
     private float moveSpeed;
 
-    private bool goRight; // true: right | false: left
+    private int goRight; // 1: right | 0: left
 
     private bool disableSwitch = false;
 
     private void Start()
     {
-        goRight = true;
-        StartCoroutine(StartSwitching());
+        goRight = Random.Range(0, 2);
     }
 
     // Update is called once per frame
@@ -37,7 +36,7 @@ public class MovementOscillator : MonoBehaviour
                 moveSpeed = constants.jumperMushroomMoveSpeed;
                 break;
         }
-        if (!goRight)
+        if (goRight == 0)
         {
             transform.Translate(Vector2.left * Time.deltaTime * moveSpeed);
         }
@@ -63,7 +62,8 @@ public class MovementOscillator : MonoBehaviour
     private void SwitchDirection()
     {
         if (!disableSwitch) {
-            goRight = !goRight;
+            if (goRight == 0) goRight = 1;
+            else goRight = 0;
             disableSwitch = true;
             StartCoroutine(enableSwitch());
         }

@@ -22,8 +22,8 @@ MonoBehaviour:
   smoothRate: 0.2
   moveSpeed: 12
   jumpForce: 250
-  switchDirectionDelayMin: 2
-  switchDirectionDelayMax: 5
+  switchDirectionDelayMin: 3
+  switchDirectionDelayMax: 8
   goldenMushroomMoveSpeed: 5
   goldenMushroomSizeUpMultiplier: 1.4
   goldenMushroomEffectDuration: 5

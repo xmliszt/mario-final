@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 4083678037857113214}
   m_Layer: 0
   m_Name: LuckyBoxAnim
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

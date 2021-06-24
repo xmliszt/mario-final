@@ -28,7 +28,7 @@ public class GombaHandler : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("death"))
         {
-            GetComponentInChildren<SquashController>().Squash();
+            Destroy(gameObject);
         }
     }
 }
