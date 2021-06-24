@@ -9,12 +9,13 @@ public class GameManager : MonoBehaviour
 
     public IntVar score;
 
+    public Inventory inventory;
+
     [Header("Dead Mario Prefab")]
     public GameObject deadMario;
     private GameObject instantiatedDeadMario;
 
     private void Start() {
-        score.Set(0);
         inventoryFull.Set(false);    
     }
 
@@ -28,5 +29,11 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         Destroy(instantiatedDeadMario);
+    }
+
+    public void RestartGame()
+    {
+        score.Set(0);
+        inventory.ClearAll();
     }
 }

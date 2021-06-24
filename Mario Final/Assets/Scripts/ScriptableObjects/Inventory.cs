@@ -14,7 +14,7 @@ public class Inventory : ScriptableObject
 
     public GameConstants constants;
 
-    private List<MushroomBooster> boosterList = new List<MushroomBooster>();
+    public List<MushroomBooster> boosterList;
 
     public void AddBooster(MushroomBooster booster)
     {
@@ -42,6 +42,10 @@ public class Inventory : ScriptableObject
         }
     }
 
+    public void ClearAll()
+    {
+        boosterList = new List<MushroomBooster>();
+    }
 
     public List<MushroomBooster> GetInventory()
     {

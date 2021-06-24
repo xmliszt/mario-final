@@ -15,28 +15,26 @@ public class InventoryUI : MonoBehaviour
 
     private List<MushroomBooster> boosters;
 
+    private List<string> boosterDescriptions;
+
     private InventorySlot[] slots;
 
     private void Start()
     {
         slots = GetComponentsInChildren<InventorySlot>();
         boosters = inventory.GetInventory();
+        UpdateUI();
         desc.text = "";
     }
 
     public void AddBooster(MushroomBooster booster)
     {
-        if (boosters.Count < constants.capacity)
-        {
-            boosters.Add (booster);
-        }
         UpdateUI();
     }
 
     public void UseBooster()
     {
-        desc.text = boosters[0]._name;
-        boosters.RemoveAt(0);
+        desc.text = boosterDescriptions[0];
         UpdateUI();
         StartCoroutine(RemoveDesc());
     }
@@ -49,10 +47,12 @@ public class InventoryUI : MonoBehaviour
 
     private void UpdateUI()
     {
+        boosterDescriptions = new List<string>();
         int i = 0;
         for (i = 0; i < boosters.Count; i++)
         {
             slots[i].AddItem(boosters[i]);
+            boosterDescriptions.Add(boosters[i]._name);
         }
         for (int j = i; j < slots.Length; j++)
         {

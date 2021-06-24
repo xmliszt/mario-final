@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryFull: {fileID: 11400000, guid: 6b299fcca7e4f2940845760ca337a727, type: 2}
   constants: {fileID: 11400000, guid: d9313749746248e43a8a2085c824f78c, type: 2}
+  boosterList:
+  - {fileID: 11400000, guid: c19fb954eab000a4596a8d5ff6f5bce2, type: 2}
+  - {fileID: 11400000, guid: c19fb954eab000a4596a8d5ff6f5bce2, type: 2}
