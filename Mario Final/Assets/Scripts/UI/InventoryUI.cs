@@ -11,6 +11,8 @@ public class InventoryUI : MonoBehaviour
 
     public GameConstants constants;
 
+    public Inventory inventory;
+
     private List<MushroomBooster> boosters;
 
     private InventorySlot[] slots;
@@ -18,7 +20,7 @@ public class InventoryUI : MonoBehaviour
     private void Start()
     {
         slots = GetComponentsInChildren<InventorySlot>();
-        boosters = new List<MushroomBooster>();
+        boosters = inventory.GetInventory();
         desc.text = "";
     }
 
