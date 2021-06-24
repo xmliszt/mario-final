@@ -22,31 +22,15 @@ public class InventoryUI : MonoBehaviour
     private void Start()
     {
         slots = GetComponentsInChildren<InventorySlot>();
-        boosters = inventory.GetInventory();
-        UpdateUI();
-        desc.text = "";
     }
 
-    public void AddBooster(MushroomBooster booster)
-    {
+    private void Update() {
         UpdateUI();
-    }
-
-    public void UseBooster()
-    {
-        desc.text = boosterDescriptions[0];
-        UpdateUI();
-        StartCoroutine(RemoveDesc());
-    }
-
-    IEnumerator RemoveDesc()
-    {
-        yield return new WaitForSeconds(5);
-        desc.text = "";
     }
 
     private void UpdateUI()
     {
+        boosters = inventory.GetInventory();
         boosterDescriptions = new List<string>();
         int i = 0;
         for (i = 0; i < boosters.Count; i++)
@@ -58,5 +42,6 @@ public class InventoryUI : MonoBehaviour
         {
             slots[j].ClearSlot();
         }
+        desc.text = boosterDescriptions[0];
     }
 }

@@ -6,7 +6,7 @@ public class InventoryManager : MonoBehaviour
 
     public void AddBooster(MushroomBooster booster)
     {
-        inventory.AddBooster(booster);
+        inventory.AddBooster (booster);
     }
 
     public void UseBooster()

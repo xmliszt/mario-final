@@ -44,8 +44,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        score.Set(0);
-        inventory.ClearAll();
+        
         SceneManager.LoadScene("Level1");
     }
 
@@ -58,5 +57,12 @@ public class GameManager : MonoBehaviour
     public void GameWin()
     {
         GameObject winPage = Instantiate(WinScreen);
+    }
+
+    private void ResetAll()
+    {
+        score.Set(0);
+        inventory.ClearAll();
+
     }
 }
