@@ -8,6 +8,10 @@ public class OnConsumeDestroy : MonoBehaviour
         {
             Destroy (gameObject);
         }
+        if (collision.CompareTag("death"))
+        {
+            Destroy (gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -13,6 +13,13 @@ public class SquashController : MonoBehaviour
 
     private bool dead = false;
 
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("death"))
+        {
+            Squash();
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.collider.CompareTag("Player"))

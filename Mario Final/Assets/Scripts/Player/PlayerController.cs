@@ -177,6 +177,10 @@ public class PlayerController : MonoBehaviour
         {
             Die();
         }
+        if (other.CompareTag("death"))
+        {
+            Die();
+        }
     }
 
     public void OnGoldenMushroomUsed()

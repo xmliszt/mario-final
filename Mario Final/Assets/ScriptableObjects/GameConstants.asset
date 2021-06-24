@@ -42,5 +42,5 @@ MonoBehaviour:
   emitForce: 20
   emitOffsetY: 1
   fireballMoveSpeed: 10
-  destroyBoundY: 20
+  destroyBoundY: 30
   enemyMoveSpeed: 2
