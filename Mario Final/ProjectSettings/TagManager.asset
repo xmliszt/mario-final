@@ -17,6 +17,7 @@ TagManager:
   - speed_mushroom
   - death
   - portal
+  - fireball
   layers:
   - Default
   - TransparentFX
@@ -56,6 +57,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 3928300721
+    locked: 0
+  - name: Lava
+    uniqueID: 2956240525
     locked: 0
   - name: Obstacle
     uniqueID: 1260203535

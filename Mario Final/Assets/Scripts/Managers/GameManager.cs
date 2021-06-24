@@ -1,8 +1,14 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {    
+    [Header("UI Control")]
+    public GameObject GameOverScreen;
+
+    public GameObject WinScreen;
+
     [Header("Variables to reset")]
 
     public BoolVar inventoryFull;
@@ -31,9 +37,26 @@ public class GameManager : MonoBehaviour
         Destroy(instantiatedDeadMario);
     }
 
-    public void RestartGame()
+    public void GoHome()
+    {
+        SceneManager.LoadScene("Start");
+    }
+
+    public void StartGame()
     {
         score.Set(0);
         inventory.ClearAll();
+        SceneManager.LoadScene("Level1");
+    }
+
+    public void GameOver()
+    {
+        GameObject gameOverPage = Instantiate(GameOverScreen);
+        
+    }
+
+    public void GameWin()
+    {
+        GameObject winPage = Instantiate(WinScreen);
     }
 }

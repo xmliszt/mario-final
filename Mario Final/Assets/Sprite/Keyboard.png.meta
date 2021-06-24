@@ -1318,7 +1318,7 @@ TextureImporter:
     second: Keyboard_437
   - first:
       213: 2527378980382378009
-    second: Keyboard_438
+    second: key E
   - first:
       213: -4573494302481125382
     second: Keyboard_439
@@ -1381,7 +1381,7 @@ TextureImporter:
     second: Keyboard_458
   - first:
       213: -2329411688576277539
-    second: Keyboard_459
+    second: key S
   - first:
       213: 1829699953163250235
     second: Keyboard_460
@@ -1546,7 +1546,7 @@ TextureImporter:
     second: Keyboard_513
   - first:
       213: 8075920937779148007
-    second: Keyboard_514
+    second: downkey
   - first:
       213: -3724455223068631140
     second: Keyboard_515
@@ -1934,9 +1934,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -11077,7 +11077,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_438
+      name: key E
       rect:
         serializedVersion: 2
         x: 96
@@ -11518,7 +11518,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_459
+      name: key S
       rect:
         serializedVersion: 2
         x: 80
@@ -12673,7 +12673,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_514
+      name: downkey
       rect:
         serializedVersion: 2
         x: 320

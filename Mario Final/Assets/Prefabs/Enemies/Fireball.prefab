@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -9076121663448022180}
   m_Layer: 0
   m_Name: Fireball
-  m_TagString: enemy
+  m_TagString: fireball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 37720985
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300542, guid: cbe738a6b31804fbfa01d65f850d595b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -146,11 +146,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.8
-  m_Color: {r: 1, g: 0.39999998, b: 0.39999998, a: 1}
-  m_Intensity: 2
+  m_FalloffIntensity: 1
+  m_Color: {r: 1, g: 0.38113207, b: 0.46183875, a: 1}
+  m_Intensity: 1
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 99933f02
+  m_ApplyToSortingLayers: 99933f02b11c25ea0f2e1d4bf5decde78da634b0
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0

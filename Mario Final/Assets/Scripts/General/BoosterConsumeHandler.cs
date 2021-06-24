@@ -16,12 +16,14 @@ public class BoosterConsumeHandler : MonoBehaviour
 
     public GameEvent OnStompSoundPlay;
 
+    private bool collected = false;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Player"))
+        if (collision.collider.CompareTag("Player") && !collected)
         {
             if (!inventoryFull.Value)
             {
+                collected = true;
                 OnAddScore.Raise(constants.mushroomCollected);
                 OnMushroomCollected.Raise(booster);
                 Destroy (gameObject);

@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public GameEvent OnCoinPlaySound;
 
     [Header("Other Events Binding")]
+
+    public GameEvent OnGameOver;
     public GameEvent OnPlayerInvincible;
 
     public GameEvent OnPlayerOffInvincible;
@@ -124,6 +126,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if (other.collider.CompareTag("coin"))
+        {
+            OnCoinPlaySound.Raise();
+            OnAddScore.Raise(constants.coinCollected);
+        }
         if (
             other.collider.CompareTag("ground") ||
             other.collider.CompareTag("brick")
@@ -163,17 +170,14 @@ public class PlayerController : MonoBehaviour
         isAlive = false;
         OnDiePlaySound.Raise();
         OnMarioDeath.Raise(transform.position);
+        OnGameOver.Raise();
         Destroy (gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("coin"))
-        {
-            OnCoinPlaySound.Raise();
-            OnAddScore.Raise(constants.coinCollected);
-        }
-        if (other.CompareTag("enemy") && !invincible)
+        
+        if (other.CompareTag("fireball") && !invincible)
         {
             Die();
         }

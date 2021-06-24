@@ -25,7 +25,7 @@ MonoBehaviour:
   switchDirectionDelayMin: 2
   switchDirectionDelayMax: 5
   goldenMushroomMoveSpeed: 5
-  goldenMushroomSizeUpMultiplier: 1.2
+  goldenMushroomSizeUpMultiplier: 1.4
   goldenMushroomEffectDuration: 5
   goldenMushroomEffectColor: {r: 1, g: 0.9949348, b: 0, a: 0}
   goldenMushroomEffectIntensity: 1.6
