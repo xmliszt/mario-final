@@ -24,7 +24,8 @@ public class InventoryUI : MonoBehaviour
         slots = GetComponentsInChildren<InventorySlot>();
     }
 
-    private void Update() {
+    private void Update()
+    {
         UpdateUI();
     }
 
@@ -42,6 +43,13 @@ public class InventoryUI : MonoBehaviour
         {
             slots[j].ClearSlot();
         }
-        desc.text = boosterDescriptions[0];
+        if (boosterDescriptions.Count > 0)
+        {
+            desc.text = boosterDescriptions[0];
+        }
+        else
+        {
+            desc.text = "";
+        }
     }
 }

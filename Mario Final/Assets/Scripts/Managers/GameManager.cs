@@ -21,10 +21,6 @@ public class GameManager : MonoBehaviour
     public GameObject deadMario;
     private GameObject instantiatedDeadMario;
 
-    private void Start() {
-        inventoryFull.Set(false);    
-    }
-
     public void PlayMarioDeathResponse(Vector3 location) 
     {
         instantiatedDeadMario = Instantiate(deadMario, location, deadMario.transform.rotation);
@@ -44,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        
+        ResetAll();
         SceneManager.LoadScene("Level1");
     }
 
@@ -61,6 +57,7 @@ public class GameManager : MonoBehaviour
 
     private void ResetAll()
     {
+        inventoryFull.Set(false);
         score.Set(0);
         inventory.ClearAll();
 
