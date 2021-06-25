@@ -61,17 +61,16 @@ public class MovementOscillator : MonoBehaviour
 
     private void SwitchDirection()
     {
-        if (!disableSwitch) {
-            if (goRight == 0) goRight = 1;
-            else goRight = 0;
-            disableSwitch = true;
-            StartCoroutine(enableSwitch());
-        }
+        if (goRight == 0) goRight = 1;
+        else goRight = 0;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        SwitchDirection();
+        if (!(other.collider.CompareTag("ground") && other.collider.CompareTag("brick")))
+        {
+            SwitchDirection();
+        }
     }
 
     IEnumerator enableSwitch() {

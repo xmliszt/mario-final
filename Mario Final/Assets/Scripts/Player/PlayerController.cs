@@ -126,11 +126,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.collider.CompareTag("coin"))
-        {
-            OnCoinPlaySound.Raise();
-            OnAddScore.Raise(constants.coinCollected);
-        }
         if (
             other.collider.CompareTag("ground") ||
             other.collider.CompareTag("brick")
@@ -176,7 +171,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (other.CompareTag("coin"))
+        {
+            OnCoinPlaySound.Raise();
+            OnAddScore.Raise(constants.coinCollected);
+        }
         if (other.CompareTag("fireball") && !invincible)
         {
             Die();

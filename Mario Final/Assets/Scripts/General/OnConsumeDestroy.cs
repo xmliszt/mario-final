@@ -4,7 +4,7 @@ public class OnConsumeDestroy : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("death"))
+        if (collision.CompareTag("death") || collision.CompareTag("Player"))
         {
             Destroy (gameObject);
         }

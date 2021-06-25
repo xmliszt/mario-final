@@ -24,23 +24,23 @@ MonoBehaviour:
   jumpForce: 250
   switchDirectionDelayMin: 3
   switchDirectionDelayMax: 8
-  goldenMushroomMoveSpeed: 5
+  goldenMushroomMoveSpeed: 7
   goldenMushroomSizeUpMultiplier: 1.4
   goldenMushroomEffectDuration: 5
   goldenMushroomEffectColor: {r: 1, g: 0.9949348, b: 0, a: 0}
   goldenMushroomEffectIntensity: 1.6
-  speedMushroomMoveSpeed: 2
+  speedMushroomMoveSpeed: 7
   speedMushroomGainSpeed: 10
   speedMushroomEffectDuration: 5
   speedMushroomEffectColor: {r: 0, g: 0.60606766, b: 1, a: 0}
   speedMushroomEffectIntensity: 1.5
-  jumperMushroomMoveSpeed: 3
+  jumperMushroomMoveSpeed: 7
   jumperMushroomJumpForceGain: 100
   jumperMushroomEffectDuration: 5
   jumperMushroomEffectColor: {r: 0.16584206, g: 1, b: 0, a: 0}
   jumperMushroomEffectIntensity: 1.5
   emitForce: 20
-  emitOffsetY: 1
+  emitOffsetY: 1.5
   fireballMoveSpeed: 10
   destroyBoundY: 30
   enemyMoveSpeed: 2
